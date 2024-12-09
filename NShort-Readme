@@ -1,0 +1,93 @@
+# **Technical Report: Drone vs. Bird Classifier Using EfficientDet/Net**
+
+## **Abstract**
+This report highlights the use of EfficientDet and EfficientNet to do object detection and image calssification. Shopwing the peak performance and the trainability of each model when put with a specific variability in the dataset. 
+---
+
+## **1. Introduction**
+The rapid proliferation of drones necessitates the development of systems to distinguish between drones and other aerial objects, such as birds. This classification has critical implications for airspace monitoring and wildlife protection. This study employs EfficientDet, a state-of-the-art deep learning model originally designed for object detection and in conjecution with EfficientNet for classification.
+
+### **Objectives**
+1. To train a robust classifier and detector on drone and bird images.
+2. To evaluate its performance using accuracy metrics
+3. Show the ability of the computer to detect said objects in an image
+
+---
+
+## **2. Dataset and Preprocessing**
+
+### **2.1 Dataset Description**
+The dataset consists of two categories:
+- **Birds**: Aerial images of various bird species.
+- **Drones**: Aerial images of drones in different orientations and lighting conditions.
+
+The dataset was divided as follows:
+- **80% training set**
+- **20% validation set**
+
+| **Category** | **Number of Images** |
+|--------------|-----------------------|
+| Birds        | 2,500                |
+| Drones       | 2,300                |
+
+### **2.2 Data Preprocessing**
+- **Resizing**: Each image was resized to `512x512` pixels to match the input size of EffcientDet0.
+- **Normalization**: Pixel values were normalized to the range `[0, 1]`.
+- **Augmentation**: Random rotations, flips, and zoom were applied to increase dataset variability.
+
+### **2.3 Exploratory Data Analysis**
+Visual inspection revealed variations in image quality and lighting conditions. Statistical analysis indicated a balanced dataset with comparable numbers of images per class.
+
+---
+
+## **3. Model Architecture**
+
+### **3.1 EfficientDet/Net Overview**
+RetinaNet is an object detection model featuring a focal loss function that addresses class imbalance. In this work, the detection head was replaced with a dense layer for binary classification. The backbone ResNet-50 was pre-trained on ImageNet to leverage transfer learning.
+
+### **3.2 Customizations**
+- **Base Model**: EfficientDetC0 and EFficientNEetB0 without top layers, trained with COCO 2017 and custom dataset respectively.
+
+---
+
+## **4. Training and Optimization**
+
+### **4.1 Hyperparameters**
+- **Learning Rate**: \(10^{-4}\)
+- **Batch Size**: 32
+- **Epochs**: 10
+- **Optimizer**: Adam
+- **Loss Function**: Binary Crossentropy
+
+
+### **4.3 Results**
+The model achieved the following metrics on the validation set:
+
+| **Metric**    | **Value** |
+|---------------|-----------|
+| Accuracy      | 99.9%     |
+
+
+---
+
+---
+
+## **5. Discussion**
+
+### **6.1 Performance Evaluation**
+The model demonstrates high accuracy and general signs of good fit within the data bounds. The biggest concern lies within the varying accruacy between epochs and the overall compatability of the model with the dataset given this trend.
+
+### **6.2 Limitations**
+- The dataset primarily includes clear images, limiting the model's robustness under avaryign conditions
+- The binary classification approach does not generalize to other objects
+
+### **6.3 Future Work**
+- Extend the dataset to include adverse weather conditions.
+- Expand the model to a multi-class classifier for other aerial objects.
+
+---
+
+## **7. Conclusion**
+This study successfully implemented a drone vs. bird classifier using EfficientDet, achieving admirable performance on a balanced dataset. The deployment of this model will be greatly dependent on wether object deterction or classification is prioritized.
+
+---
