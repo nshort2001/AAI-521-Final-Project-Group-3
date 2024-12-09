@@ -43,7 +43,7 @@ Visual inspection revealed variations in image quality and lighting conditions. 
 ## **3. Model Architecture**
 
 ### **3.1 EfficientDet/Net Overview**
-RetinaNet is an object detection model featuring a focal loss function that addresses class imbalance. In this work, the detection head was replaced with a dense layer for binary classification. The backbone ResNet-50 was pre-trained on ImageNet to leverage transfer learning.
+EfficeintDet is an object detection model that uses layer scaling to build on learning as the model trains. In this case, the model was trained with multiple layers of varying data to build on the scale as well as the subsequent layers, trainign the model to further build detection capabilities.
 
 ### **3.2 Customizations**
 - **Base Model**: EfficientDetC0 and EFficientNEetB0 without top layers, trained with COCO 2017 and custom dataset respectively.
